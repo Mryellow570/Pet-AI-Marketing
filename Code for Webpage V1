@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pet Marketing Company</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .pet-image {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: 0 auto;
+        }
+        .content-section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">PetMarketingAI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="home" class="text-center">
+            <img src="https://via.placeholder.com/700x400" alt="Various pets" class="pet-image">
+        </div>
+
+        <div id="about" class="content-section">
+            <h2>About Our AI Pet Marketing Company</h2>
+            <p>Welcome to PetMarketingAI, the leading provider of AI-driven marketing solutions for the pet industry. Our advanced artificial intelligence technology helps businesses create compelling advertisements that resonate with pet owners and increase customer spending on pet products.</p>
+            <p>At PetMarketingAI, we understand the unique challenges and opportunities in the pet market. Our AI algorithms analyze vast amounts of data to identify trends, preferences, and behaviors of pet owners. This enables us to craft personalized marketing campaigns that effectively target specific segments of the market.</p>
+            <p>Our services include AI-generated content, social media management, targeted advertising, and comprehensive marketing analytics. By leveraging the power of AI, we help businesses maximize their marketing ROI and drive growth in a competitive landscape.</p>
+            <p>Join us in revolutionizing the pet marketing industry with cutting-edge AI technology. Partner with PetMarketingAI to elevate your marketing strategies and connect with pet owners like never before.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
