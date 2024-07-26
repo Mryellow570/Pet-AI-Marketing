@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pet Marketing Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PetAI Marketing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#buy-ads">Buy ADs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#targeted-advertising">Targeted Advertising</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#future-market">Future Market</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <img src="/api/placeholder/700/400" alt="Various pets" class="img-fluid mb-4 mx-auto d-block" style="width: 700px;">
+
+        <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Our ADs</h5>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="/api/placeholder/560/315" title="Video placeholder" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title text-center">Buy ADs</h5>
+                                <a href="#buy-ads" class="btn btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title text-center">Targeted Advertising</h5>
+                                <a href="#targeted-advertising" class="btn btn-primary mt-3">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title text-center">Future Market</h5>
+                                <a href="#future-market" class="btn btn-primary mt-3">Discover</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="about-us">
+            <h2>About PetAI Marketing</h2>
+            <p>Welcome to PetAI Marketing, where we harness the power of artificial intelligence to revolutionize pet product advertising. Our cutting-edge AI technology creates tailored advertisements that resonate with pet owners, driving increased customer spending on pet products.</p>
+            <p>At PetAI Marketing, we understand that pets are more than just animals – they're beloved family members. Our AI algorithms analyze vast amounts of data on pet owner behaviors, preferences, and trends to craft compelling marketing strategies that speak directly to the hearts of pet lovers.</p>
+            <p>By leveraging machine learning and natural language processing, we create ads that not only showcase products but also tell stories that pet owners can relate to. This emotional connection, combined with our data-driven approach, results in higher engagement rates and increased sales for our clients in the pet industry.</p>
+            <p>Our AI-powered platform continuously learns and adapts, ensuring that your marketing campaigns stay ahead of the curve in the ever-evolving pet market. From personalized product recommendations to targeted social media campaigns, PetAI Marketing is your partner in growing your pet business through innovative, AI-driven advertising solutions.</p>
+        </section>
+
+        <section id="buy-ads">
+            <h2>Buy ADs</h2>
+            <p>Ready to take your pet product marketing to the next level? Start your AI-powered advertising journey with PetAI Marketing today! Our streamlined process makes it easy to create and launch effective ad campaigns tailored to your specific pet products and target audience.</p>
+            <h3>How It Works:</h3>
+            <ol>
+                <li><strong>Choose Your Package:</strong> Select from our range of advertising packages designed to suit businesses of all sizes.</li>
+                <li><strong>Provide Product Details:</strong> Tell us about your pet products and your ideal customer base.</li>
+                <li><strong>AI Analysis:</strong> Our AI algorithms will analyze market trends and consumer behavior to create optimized ad strategies.</li>
+                <li><strong>Ad Creation:</strong> We'll generate compelling ad content and visuals tailored to your products and target audience.</li>
+                <li><strong>Campaign Launch:</strong> Your ads will be distributed across relevant platforms to reach potential customers.</li>
+                <li><strong>Performance Tracking:</strong> Monitor your campaign's success with our real-time analytics dashboard.</li>
+            </ol>
+            <p>Get started now and see the power of AI-driven pet product marketing in action!</p>
+            <button class="btn btn-success btn-lg">Start Your Campaign</button>
+        </section>
+
+        <section id="targeted-advertising">
+            <h2>Targeted Advertising</h2>
+            <p>Our targeted advertising solutions use advanced AI algorithms to deliver the right message to the right pet owners at the right time. By analyzing data from various sources, including social media activity, browsing behavior, and purchase history, we create highly personalized ad campaigns that resonate with your target audience.</p>
+            <p>With PetAI Marketing's targeted advertising, you can:</p>
+            <ul>
+                <li>Increase conversion rates by showing relevant products to interested pet owners</li>
+                <li>Improve ROI by optimizing ad spend based on real-time performance data</li>
+                <li>Enhance customer loyalty through personalized recommendations and offers</li>
+                <li>Expand your market reach by identifying and targeting new potential customers</li>
+            </ul>
+            <p>Let our AI-powered targeted advertising take your pet product marketing to the next level!</p>
+        </section>
+
+        <section id="future-market">
+            <h2>Future Market</h2>
+            <p>At PetAI Marketing, we're not just focused on today's pet market – we're actively shaping the future of pet product advertising. Our advanced AI algorithms are constantly analyzing emerging trends, consumer behavior shifts, and technological advancements to help you stay ahead of the curve.</p>
+            <h3>What We Offer:</h3>
+            <ul>
+                <li><strong>Trend Forecasting:</strong> Predict upcoming pet product trends before they hit the mainstream.</li>
+                <li><strong>Market Evolution Analysis:</strong> Understand how the pet market is evolving and how it will affect your business.</li>
+                <li><strong>Emerging Technology Integration:</strong> Stay at the forefront of new advertising technologies in the pet industry.</li>
+                <li><strong>Sustainability Insights:</strong> Learn how eco-friendly and sustainable practices are shaping the future of pet products.</li>
+                <li><strong>Personalization at Scale:</strong> Discover how hyper-personalization will transform pet product marketing in the coming years.</li>
+            </ul>
+            <p>By partnering with PetAI Marketing, you're not just preparing for the future – you're helping to create it. Let us guide you through the evolving landscape of pet product advertising and position your brand as a leader in the industry.</p>
+            <button class="btn btn-info btn-lg">Explore Future Trends</button>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
