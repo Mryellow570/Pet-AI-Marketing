@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pet Marketing Company</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-toggler-custom {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .navbar-toggler-icon-custom {
+            width: 35px;
+            height: 4px;
+            background-color: #333;
+        }
+        .navbar-brand-custom {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .profile-icon-container {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .dropdown-menu-custom {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .dropdown-menu-custom.show {
+            display: block;
+        }
+        .dropdown-item-custom {
+            padding: 10px 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+        .dropdown-item-custom:hover {
+            background-color: #f8f9fa;
+        }
+        .profile-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .profile-dropdown-menu.show {
+            display: block;
+        }
+        .profile-dropdown-item {
+            padding: 10px 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+        .profile-dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        .full-width-box {
+            width: 100%;
+            height: 400px;
+            max-width: 700px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            margin: 70px auto 20px auto; /* Adjust margin to ensure it's not hidden behind the navbar */
+        }
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .box-middle {
+            margin: 0 10px; /* Adds spacing between the middle box and the side boxes */
+        }
+        .video-box iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 315px; /* Minimum height to ensure the video is viewable */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 100%;
+            justify-content: center;
+        }
+        .custom-button {
+            flex: 1;
+            display: inline-block;
+            padding: 40px 20px; /* Adjusted padding to make text closer to top and bottom */
+            font-size: 24px; /* Larger font size */
+            border: 2px solid #333;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .custom-button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+        .link-button {
+            text-decoration: none;
+            color: inherit;
+        }
+        .mission-statement {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-custom">
+        <button class="navbar-toggler navbar-toggler-custom" type="button" onclick="toggleDropdown()">
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+        </button>
+        <div class="navbar-brand navbar-brand-custom">LeashLead</div>
+        <div class="profile-icon-container" onclick="toggleProfileDropdown()">
+            <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M12 12c-4.4 0-8 1.79-8 4v1h16v-1c0-2.21-3.6-4-8-4z"/>
+                <circle cx="12" cy="12" r="10" fill="none" stroke="black" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="dropdown-menu-custom" id="dropdown-menu">
+            <a class="dropdown-item-custom" href="index.html">Home</a>
+            <a class="dropdown-item-custom" href="targeted-ads.html">Targeted Advertisements</a>
+            <a class="dropdown-item-custom" href="future-market.html">Future Market</a>
+            <a class="dropdown-item-custom" href="buy-ads.html">Buy Ads</a>
+        </div>
+        <div class="profile-dropdown-menu" id="profile-dropdown">
+            <a id="profile-email" class="profile-dropdown-item" href="#"></a>
+            <a class="profile-dropdown-item" href="#" onclick="logout()">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="margin-top: 70px;">
+        <div id="home" class="text-center">
+            <div class="full-width-box">Image placeholder (700x400)</div>
+        </div>
+
+        <div class="box-container">
+            <div class="box video-box">
+                <iframe src="https://www.youtube.com/embed/bSvTVREwSNw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="box box-middle">
+                <div class="button-container">
+                    <a class="link-button custom-button" href="targeted-ads.html">Targeted Advertisements</a>
+                    <a class="link-button custom-button" href="future-market.html">Future Market</a>
+                    <a class="link-button custom-button" href="buy-ads.html">Buy Ads</a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Mission Statement</h3>
+                <p class="mission-statement">Text about the mission statement goes here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('show');
+        }
+        function toggleProfileDropdown() {
+            var profileMenu = document.getElementById('profile-dropdown');
+            profileMenu.classList.toggle('show');
+        }
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                document.getElementById('profile-email').textContent = loggedInUser;
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

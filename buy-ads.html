@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Ads</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-toggler-custom {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .navbar-toggler-icon-custom {
+            width: 35px;
+            height: 4px;
+            background-color: #333;
+        }
+        .navbar-brand-custom {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .profile-icon-container {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .dropdown-menu-custom {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .dropdown-menu-custom.show {
+            display: block;
+        }
+        .dropdown-item-custom {
+            padding: 10px 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+        .dropdown-item-custom:hover {
+            background-color: #f8f9fa;
+        }
+        .profile-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .profile-dropdown-menu.show {
+            display: block;
+        }
+        .profile-dropdown-item {
+            padding: 10px 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+        .profile-dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        .section {
+            padding: 20px;
+            margin-top: 80px; /* Adjusted to ensure content is not hidden behind the navbar */
+        }
+        .rect-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .rect-box img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .big-bullets ul {
+            font-size: 1.25rem;
+        }
+        .big-bullets ul li {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-custom">
+        <button class="navbar-toggler navbar-toggler-custom" type="button" onclick="toggleDropdown()">
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+        </button>
+        <div class="navbar-brand navbar-brand-custom">LeashLead</div>
+        <div class="profile-icon-container" onclick="toggleProfileDropdown()">
+            <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M12 12c-4.4 0-8 1.79-8 4v1h16v-1c0-2.21-3.6-4-8-4z"/>
+                <circle cx="12" cy="12" r="10" fill="none" stroke="black" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="dropdown-menu-custom" id="dropdown-menu">
+            <a class="dropdown-item-custom" href="index.html">Home</a>
+            <a class="dropdown-item-custom" href="targeted-ads.html">Targeted Advertisements</a>
+            <a class="dropdown-item-custom" href="future-market.html">Future Market</a>
+            <a class="dropdown-item-custom" href="buy-ads.html">Buy Ads</a>
+        </div>
+        <div class="profile-dropdown-menu" id="profile-dropdown">
+            <a class="profile-dropdown-item" id="profile-email" href="#"></a>
+            <a class="profile-dropdown-item" href="#" onclick="logout()">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <div class="rect-box">
+            <img src="https://via.placeholder.com/800x200" alt="Ad Image 1">
+            <div class="big-bullets">
+                <ul>
+                    <li>Point 1 about Ad 1</li>
+                    <li>Point 2 about Ad 1</li>
+                    <li>Point 3 about Ad 1</li>
+                </ul>
+            </div>
+        </div>
+        <div class="rect-box">
+            <img src="https://via.placeholder.com/800x200" alt="Ad Image 2">
+            <div class="big-bullets">
+                <ul>
+                    <li>Point 1 about Ad 2</li>
+                    <li>Point 2 about Ad 2</li>
+                    <li>Point 3 about Ad 2</li>
+                </ul>
+            </div>
+        </div>
+        <div class="rect-box">
+            <img src="https://via.placeholder.com/800x200" alt="Ad Image 3">
+            <div class="big-bullets">
+                <ul>
+                    <li>Point 1 about Ad 3</li>
+                    <li>Point 2 about Ad 3</li>
+                    <li>Point 3 about Ad 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('show');
+        }
+        function toggleProfileDropdown() {
+            var profileMenu = document.getElementById('profile-dropdown');
+            profileMenu.classList.toggle('show');
+        }
+
+        // Show logged-in user's email in the profile dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const email = localStorage.getItem('loggedInUser');
+            if (email) {
+                document.getElementById('profile-email').textContent = email;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

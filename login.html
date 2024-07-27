@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .login-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .toggle-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .toggle-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://via.placeholder.com/400x200" alt="Logo">
+        <div id="login-form" class="form-container active">
+            <form>
+                <div class="form-group">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="toggle-link">
+                <a href="#" onclick="showCreateAccountForm()">Create an Account</a>
+            </div>
+        </div>
+        <div id="create-account-form" class="form-container">
+            <form>
+                <div class="form-group">
+                    <input type="email" id="create-email" placeholder="Create Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="create-password" placeholder="Create Password" required>
+                </div>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <div class="toggle-link">
+                <a href="#" onclick="showLoginForm()">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || {};
+
+        document.querySelector('#login-form form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if (users[email] && users[email] === password || (email === 'test@test.com' && password === 'test')) {
+                localStorage.setItem('loggedInUser', email);
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid login credentials');
+            }
+        });
+
+        document.querySelector('#create-account-form form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('create-email').value;
+            const password = document.getElementById('create-password').value;
+
+            if (email in users) {
+                alert('Account already exists');
+            } else {
+                users[email] = password;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Account created. Please log in.');
+                showLoginForm();
+            }
+        });
+
+        function showCreateAccountForm() {
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('create-account-form').classList.add('active');
+        }
+
+        function showLoginForm() {
+            document.getElementById('create-account-form').classList.remove('active');
+            document.getElementById('login-form').classList.add('active');
+        }
+    </script>
+</body>
+</html>
