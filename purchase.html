@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Ad</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #008080; /* Teal */
+            --secondary-color: #002D62; /* Dark Blue */
+            --background-color: #F5F5DC; /* Light Beige */
+        }
+        body {
+            background-color: var(--background-color);
+        }
+        .navbar-custom {
+            background-color: var(--primary-color);
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-toggler-custom {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .navbar-toggler-icon-custom {
+            width: 35px;
+            height: 4px;
+            background-color: #fff;
+        }
+        .navbar-brand-custom {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .profile-icon-container {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            fill: #fff;
+        }
+        .dropdown-menu-custom {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .dropdown-menu-custom.show {
+            display: block;
+        }
+        .dropdown-item-custom {
+            padding: 10px 20px;
+            display: block;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .dropdown-item-custom:hover {
+            background-color: #f8f9fa;
+        }
+        .profile-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .profile-dropdown-menu.show {
+            display: block;
+        }
+        .profile-dropdown-item {
+            padding: 10px 20px;
+            display: block;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .profile-dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+        .section {
+            padding: 20px;
+            margin-top: 80px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: var(--background-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-custom">
+        <button class="navbar-toggler navbar-toggler-custom" type="button" onclick="toggleDropdown()">
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+            <div class="navbar-toggler-icon-custom"></div>
+        </button>
+        <div class="navbar-brand navbar-brand-custom">LeashLead</div>
+        <div class="profile-icon-container" onclick="toggleProfileDropdown()">
+            <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M12 12c-4.4 0-8 1.79-8 4v1h16v-1c0-2.21-3.6-4-8-4z"/>
+                <circle cx="12" cy="12" r="10" fill="none" stroke="white" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="dropdown-menu-custom" id="dropdown-menu">
+            <a class="dropdown-item-custom" href="mainpage.html">Home</a>
+            <a class="dropdown-item-custom" href="targeted-ads.html">Targeted Advertisements</a>
+            <a class="dropdown-item-custom" href="future-market.html">Future Market</a>
+            <a class="dropdown-item-custom" href="buy-ads.html">Buy Ads</a>
+        </div>
+        <div class="profile-dropdown-menu" id="profile-dropdown">
+            <a id="profile-email" class="profile-dropdown-item" href="#"></a>
+            <a class="profile-dropdown-item" href="#" onclick="logout()">Log Out</a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <div class="form-container">
+            <h2>Purchase Ad</h2>
+            <form id="adForm">
+                <!-- Questions about the product -->
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" class="form-control" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Product Description</label>
+                    <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Product Category</label>
+                    <input type="text" class="form-control" id="productCategory" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Product Price</label>
+                    <input type="number" class="form-control" id="productPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="targetPets">Target Pets</label>
+                    <input type="text" class="form-control" id="targetPets" required>
+                </div>
+                <div class="form-group">
+                    <label for="productBenefits">Product Benefits</label>
+                    <textarea class="form-control" id="productBenefits" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productIngredients">Product Ingredients</label>
+                    <textarea class="form-control" id="productIngredients" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="usageInstructions">Usage Instructions</label>
+                    <textarea class="form-control" id="usageInstructions" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="availability">Availability</label>
+                    <input type="text" class="form-control" id="availability" required>
+                </div>
+                <div class="form-group">
+                    <label for="warranty">Warranty</label>
+                    <input type="text" class="form-control" id="warranty" required>
+                </div>
+                <div class="form-group">
+                    <label for="manufacturer">Manufacturer</label>
+                    <input type="text" class="form-control" id="manufacturer" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactInfo">Contact Information</label>
+                    <input type="text" class="form-control" id="contactInfo" required>
+                </div>
+                <div class="form-group">
+                    <label for="socialMediaLinks">Social Media Links</label>
+                    <input type="text" class="form-control" id="socialMediaLinks">
+                </div>
+                <div class="form-group">
+                    <label for="additionalNotes">Additional Notes</label>
+                    <textarea class="form-control" id="additionalNotes" rows="3"></textarea>
+                </div>
+
+                <!-- Payment options -->
+                <h3>Payment Options</h3>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" class="form-control" id="cardName" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardExpiry">Expiry Date</label>
+                    <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardCVV">CVV</label>
+                    <input type="text" class="form-control" id="cardCVV" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdown-menu');
+            menu.classList.toggle('show');
+        }
+        function toggleProfileDropdown() {
+            var profileMenu = document.getElementById('profile-dropdown');
+            profileMenu.classList.toggle('show');
+        }
+        function logout() {
+            localStorage.removeItem('loggedInEmail');
+            window.location.href = 'login.html';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var loggedInEmail = localStorage.getItem('loggedInEmail');
+            if (!loggedInEmail) {
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('profile-email').textContent = loggedInEmail;
+            }
+        });
+        document.getElementById('adForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Ad form submitted successfully!');
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

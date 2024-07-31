@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #008080; /* Teal */
+            --secondary-color: #002D62; /* Dark Blue */
+            --background-color: #F5F5DC; /* Light Beige */
+        }
+        body {
+            background-color: var(--background-color);
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+        .form-container {
+            padding: 20px;
+            border: 1px solid var(--secondary-color);
+            background-color: var(--background-color);
+            border-radius: 5px;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            margin-bottom: 20px;
+            background-image: url('IMG_0813_with_better_blended_background.jpg'); /* Replace this with your image URL */
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+        h2 {
+            color: var(--secondary-color);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        a {
+            color: var(--primary-color);
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Create Account</h2>
+            <div class="image-placeholder"></div>
+            <form id="createAccountForm">
+                <div class="form-group">
+                    <label for="createEmail">Email</label>
+                    <input type="email" class="form-control" id="createEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="createPassword">Password</label>
+                    <input type="password" class="form-control" id="createPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <div id="message" style="margin-top: 20px;"></div>
+            <p style="margin-top: 20px;">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('createAccountForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('createEmail').value;
+            var password = document.getElementById('createPassword').value;
+
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password);
+
+            document.getElementById('message').textContent = 'Account created successfully. You can now log in.';
+        });
+    </script>
+</body>
+</html>
